@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420035426) do
+ActiveRecord::Schema.define(version: 20150420083220) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "content"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150420035426) do
     t.boolean  "admin"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "remember_digest"
   end
 
   create_table "words", force: :cascade do |t|
