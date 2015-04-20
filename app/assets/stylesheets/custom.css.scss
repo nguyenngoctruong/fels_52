@@ -96,3 +96,23 @@ footer {
     }
   }
 }
+
+/* Categories index */
+
+.categories {
+  list-style: none;
+  margin: 0;
+  margin-bottom: 40px;
+  li {
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+.cateName{
+  font-size: 2em;
+  font-weight: bold;
+}
+
+
+

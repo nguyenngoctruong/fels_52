@@ -1,0 +1,6 @@
+<% provide :title, 'All Categories' %>
+<h1>All Categories</h1>
+<ul class="categories" id="categories">    
+  <%= render @categories %>
+</ul>
+<div class="center"><%= link_to 'New Category', new_category_path, class: "btn btn-primary" %></div>
