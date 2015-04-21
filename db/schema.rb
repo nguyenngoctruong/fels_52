@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422062219) do
+ActiveRecord::Schema.define(version: 20150429074909) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "content"
@@ -28,9 +28,14 @@ ActiveRecord::Schema.define(version: 20150422062219) do
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "category_id"
   end
+
+  add_index "lessons", ["category_id"], name: "index_lessons_on_category_id"
+  add_index "lessons", ["user_id"], name: "index_lessons_on_user_id"
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
@@ -46,15 +51,20 @@ ActiveRecord::Schema.define(version: 20150422062219) do
   create_table "results", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "lesson_id"
+    t.integer  "word_id"
   end
+
+  add_index "results", ["lesson_id"], name: "index_results_on_lesson_id"
+  add_index "results", ["word_id"], name: "index_results_on_word_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.boolean  "admin"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.boolean  "admin",           default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "remember_digest"
   end
 
