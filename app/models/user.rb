@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   attr_accessor :remember_token
-  has_many :lessons
+  has_many :lessons, dependent:   :destroy
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy

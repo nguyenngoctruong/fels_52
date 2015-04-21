@@ -1,8 +1,6 @@
 <li class="category-<%= category.id %>">
   <div class="row">
     <div class="cateName"><span class="col-md-10"><%= category.name %></span></div>
-    <span class="col-md-10">You've learned</span>
-    <span class="col-md-1"><%= link_to 'Delete', category, method: :delete, remote: true, class: "btn btn-primary" %></span>
-    <span class="col-md-1"><%= link_to 'Start', new_lesson_path(category_id: category.id), class: "btn btn-primary" %></span>
+    <span class="col-md-1"><%= link_to 'Start', new_category_lesson_path(category_id: category.id), class: "btn btn-primary" %></span>
   </div>
 </li>

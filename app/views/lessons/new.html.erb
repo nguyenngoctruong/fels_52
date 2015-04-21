@@ -1,3 +1,19 @@
 <% provide :title, 'Lesson' %>
-<h1> Lesson </h1>
-<h4> <%= @category.name %> </h4>
+<h1>Lesson | <%= @category.name %></span></h1>
+<div class="container">
+  <div class="row" id="lesson">
+    <%= form_for [@category, @lesson] do |f| %>
+      <%= hidden_field_tag :category_id, @category.id %>
+      <%= f.fields_for :results do |builder| %>
+        <div class="col-md-10 results">
+          <%= render 'results', f: builder %>
+        </div>
+      <% end %>
+      <div class="center col-md-4">
+      <a id="prev"><span class="glyphicon glyphicon-fast-backward"></span></a>
+      <a id="next"><span class="glyphicon glyphicon-fast-forward"></span></a>
+      </div>
+      <div class="col-md-4"><br><%= f.submit "Submit", class: "btn btn-primary" %></div>
+    <% end %>
+  </div>
+</div>

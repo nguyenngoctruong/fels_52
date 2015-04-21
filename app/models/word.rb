@@ -17,6 +17,5 @@ class Word < ActiveRecord::Base
 
   scope :filter_category, ->category_id {where category_id: category_id if category_id.present?}
 
-  scope :random_words, ->user {not_learned_words(user).limit(6)
-    .order "RANDOM()"}
+  scope :random_words, ->user {not_learned_words(user).limit(10).order "RANDOM()"}
 end
