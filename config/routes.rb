@@ -15,9 +15,10 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: [:create, :destroy]
   resources :words, only: [:index]
-  resources :categories
+  resources :categories, only: [:index]
   namespace :admin do
-    resources :words, expect: [:index]
+    resources :words
+    resources :categories
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
