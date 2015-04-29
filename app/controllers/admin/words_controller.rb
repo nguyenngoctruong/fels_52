@@ -2,6 +2,11 @@ class Admin::WordsController < ApplicationController
   before_action :logged_in_user
   before_action :require_admin
 
+  def index
+    @categories = Category.all
+    @words = Word.paginate page: params[:page], per_page: 10
+  end
+
   def new
     @category = Category.find params[:category_id]
     @word = Word.new
@@ -13,10 +18,10 @@ class Admin::WordsController < ApplicationController
     @word = @category.words.build word_params
     if @word.save
       flash[:success] = "Word created"
-      redirect_to words_path
+      redirect_to admin_words_path
     else
       @categories = Category.all
-      render 'new'
+      render "new"
     end
   end
 
@@ -30,10 +35,10 @@ class Admin::WordsController < ApplicationController
     @word = Word.find params[:id]
     if @word.update_attributes word_params
       flash[:success] = "Word updated"
-      redirect_to words_path
+      redirect_to admin_words_path
     else
       @categories = Category.all
-      render 'edit'
+      render "edit"
     end
   end
 
