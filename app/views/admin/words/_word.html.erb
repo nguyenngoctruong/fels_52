@@ -1,0 +1,14 @@
+<li class="word-<%= word.id %>">
+  <div class="row">
+    <div class="word-content"><span class="col-md-8"><%= word.content %></span></div>
+    <span class="col-md-1"><%= link_to 'Delete', admin_word_path(word),
+          method: :delete, remote: true, class: "btn btn-primary" %></span>
+    <span class="col-md-1"><%= link_to 'Edit', edit_admin_word_path(word),
+          class: "btn btn-primary" %></span>
+    <div class="word-content"><span class="col-md-2">
+      <% if word.answers.correct.any?  %>
+        <%= word.answers.correct.first.content %>
+      <% end %>
+    </span></div>
+  </div>
+</li>

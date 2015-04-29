@@ -10,10 +10,18 @@
   </aside>
   <div class="col-md-8">
     <div class="col-md-4">
-      <%= link_to "Word", '#' , class: "btn btn-lg btn-primary" %>
+      <% if current_user.admin? %>
+        <%= link_to "Word", admin_words_path , class: "btn btn-lg btn-primary" %>
+      <% else %>
+        <%= link_to "Word", words_path , class: "btn btn-lg btn-primary" %>
+      <% end %>
     </div>
     <div class="col-md-4">
-      <%= link_to "Category", categories_path , class: "btn btn-lg btn-primary" %>
+      <% if current_user.admin? %>
+        <%= link_to "Category", admin_categories_path , class: "btn btn-lg btn-primary" %>
+      <% else %>
+        <%= link_to "Category", categories_path , class: "btn btn-lg btn-primary" %>
+      <% end %>
    </div>
   </div>
 </div>
