@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  resources :users do
+  resources :users, expect: [:delete] do
     resources :followings, only: :index
     resources :followers, only: :index
   end
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :words
     resources :categories
+    resources :users
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
