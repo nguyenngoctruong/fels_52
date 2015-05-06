@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429074909) do
+ActiveRecord::Schema.define(version: 20150427074040) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "content"
@@ -32,9 +32,11 @@ ActiveRecord::Schema.define(version: 20150429074909) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.integer  "category_id"
+    t.integer  "result_id"
   end
 
   add_index "lessons", ["category_id"], name: "index_lessons_on_category_id"
+  add_index "lessons", ["result_id"], name: "index_lessons_on_result_id"
   add_index "lessons", ["user_id"], name: "index_lessons_on_user_id"
 
   create_table "relationships", force: :cascade do |t|
@@ -62,9 +64,9 @@ ActiveRecord::Schema.define(version: 20150429074909) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.boolean  "admin",           default: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.boolean  "admin"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "remember_digest"
   end
 

@@ -15,6 +15,8 @@ class Word < ActiveRecord::Base
   scope :not_learned_words, ->user {where "id NOT IN (#{learned_word_ids})",
     user_id: user.id}
 
+  scope :filter_category, ->category_id {where category_id: category_id if category_id.present?}
+
   scope :random_words, ->user {not_learned_words(user).limit(6)
     .order "RANDOM()"}
 end

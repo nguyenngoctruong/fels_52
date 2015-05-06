@@ -1,13 +1,13 @@
 <% provide :title, 'All Words' %>
 <h1>All Words</h1>
-<div class= "filter">
+<div>
   <%= form_tag words_path, method: :get do %>
     <label for="category_id">Category</label>
-    <%= select_tag :category_id,
-        options_from_collection_for_select(@categories, "id", "name",
-        params[:category_id]), include_blank: "All" %>
+    <%= render "shared/form_filter_word" %>
     <div class="row">
-      <div class="col-md-4"><%= submit_tag "Filter", class: "btn btn-primary" %></div>
+      <div class="col-md-2">
+      <%= submit_tag "Filter", class: "btn btn-primary" %>
+      </div>
     </div>
   <% end %>
 </div>

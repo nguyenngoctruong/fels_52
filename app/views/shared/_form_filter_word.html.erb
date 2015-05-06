@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= select_tag :category_id,
+        options_from_collection_for_select(@categories, "id", "name",
+        params[:category_id]), include_blank: "All" %>
+  </div>
+  <% {learned_words: "Learned", not_learned_words: "Not learned"}.each do %>
+    <% |item,label| %>
+    <div class="col-md-1">
+    <%= radio_button_tag :filter, item %>
+    </div>
+    <div class="col-md-2"><%= label_tag label %></div>
+  <% end %>
+</div>
