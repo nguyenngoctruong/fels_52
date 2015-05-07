@@ -1,6 +1,6 @@
 <%= provide :title, 'Result' %>
 <h1><span><%= @category.name %></span> Result <span><%= @lesson.sum_correct %>/<%= @lesson.results.count %></span></h1>
-<div class="container result">
+<div class="container result checkback" id="<%= params[:check] %>">
   <div class="row mixed">
     <div class="col-md-3">Result</div>
     <div class="col-md-3">Word</div>

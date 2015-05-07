@@ -1,6 +1,5 @@
 class Admin::CategoriesController < ApplicationController
-  before_action :logged_in_user
-  before_action :require_admin
+  before_action :logged_in_user, :require_admin
 
   def index
     @categories = Category.all

@@ -1,6 +1,11 @@
 <li class="category-<%= category.id %>">
   <div class="row">
-    <div class="cateName"><span class="col-md-9"><%= category.name %></span></div>
+    <span class="col-md-9">
+      <div class="cateName"><%= category.name %> </div>
+      You learned 
+      <%= category.count_words_learned current_user %> / 
+      <%= category.words.count %> words
+    </span>
     <span class="col-md-1"><%= link_to 'Delete', admin_category_path(category),
               method: :delete, remote: true, class: "btn btn-primary" %>
     </span>

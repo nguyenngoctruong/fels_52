@@ -6,7 +6,9 @@ class Activity < ActiveRecord::Base
   validates :action, presence: true
   validates :target_id, presence: true
 
+  scope :order_time, ->{order created_at: :desc}
+
   def return_target_object
-    lesson? ? Lesson.find(target_id) : User.find(target_id)
+    lesson? ? Lesson.find_by(id: target_id) : User.find_by(id: target_id)
   end
 end

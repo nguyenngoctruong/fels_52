@@ -4,6 +4,7 @@ class Lesson < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   has_many :results
+
   before_save :update_sum_correct
   after_save :save_activity
 
