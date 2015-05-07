@@ -9,15 +9,19 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+
   resources :users, expect: [:delete] do
     resources :followings, only: :index
     resources :followers, only: :index
   end
-  resources :lessons
   resources :relationships, only: [:create, :destroy]
   resources :words, only: [:index]
-  resources :categories, only: [:index]
+  resources :categories, only: [:index] do
+    resources :lessons
+  end
+  
   namespace :admin do
+    root 'users#index'
     resources :words
     resources :categories
     resources :users

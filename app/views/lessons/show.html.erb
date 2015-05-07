@@ -1,0 +1,30 @@
+<%= provide :title, 'Result' %>
+<h1><span><%= @category.name %></span> Result <span><%= @lesson.sum_correct %>/<%= @lesson.results.count %></span></h1>
+<div class="container result">
+  <div class="row mixed">
+    <div class="col-md-3">Result</div>
+    <div class="col-md-3">Word</div>
+    <div class="col-md-3">Your chosen</div>
+    <div class="col-md-3">Answer</div>
+  </div>
+  <% @lesson.results.each do |result| %>
+    <div class="row">
+      <div class="col-md-3">
+        <% if result.answer == result.answers.correct.first %>
+          <span class="glyphicon glyphicon-ok"></span>
+        <% else %>
+          <span class="glyphicon glyphicon-remove"></span>
+        <% end %>
+      </div>
+      <div class="col-md-3"><%= result.word.content %></div>
+      <div class="col-md-3">
+        <% if result.answer.nil? %>
+            <span>.Nil.</span>
+        <% else %>
+          <%= result.answer.content %>
+        <% end %>
+      </div>
+      <div class="col-md-3"><%= result.answers.correct.first.content %></div>
+    </div>
+  <% end %>
+</div>

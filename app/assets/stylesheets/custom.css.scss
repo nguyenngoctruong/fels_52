@@ -27,9 +27,6 @@ textarea {
 
 .center {
   text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
 }
 
 /* typography */
@@ -267,4 +264,32 @@ input {
   p {
     width: 150px;
   }
+}
+
+.list-answers{
+  margin-left: 100px;
+  margin-top: 20px;
+  margin-bottim: 30px;
+}
+
+.result {
+  .option {
+    width: 60%;
+    margin-bottom: 5px;
+  }
+  .counter {
+    margin-left: 20px;
+  }
+  .mixed {
+    font-weight: bolder;
+  }
+}
+
+.activity {
+  font-weight: bold; 
+  margin-top: 50px;
+}
+
+.lesson-list {
+  margin-top: 10px;
 }

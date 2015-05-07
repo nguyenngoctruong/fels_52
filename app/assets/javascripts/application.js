@@ -34,7 +34,27 @@ $(document).ready(function () {
       href += category_id;
       $(this).attr("href", href)
     }
+  });
+
+  $(".results").each(function(tsd) {
+    if (tsd != 0)
+      $(this).hide();
+  });
     
+  $("#next").click(function(){
+    var nextDiv = $(".results:visible").next(".results");
+    if (nextDiv.length == 0)
+      nextDiv = $(".results:first");
+      $(".results:visible").hide();
+      nextDiv.show();
+  });
+
+  $("#prev").click(function(){
+    var prevDiv = $(".results:visible").prev(".results");
+    if (prevDiv.length == 0)
+      prevDiv = $(".results:last");
+      $(".results:visible").hide();
+      prevDiv.show();
   });
 });
 

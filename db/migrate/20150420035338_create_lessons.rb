@@ -4,6 +4,6 @@ class CreateLessons < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index :lessons, [:user_id, :category_id, :created_at]
+    
   end
 end
