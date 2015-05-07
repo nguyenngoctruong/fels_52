@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
-
   attr_accessor :remember_token
+  
   has_many :lessons, dependent:   :destroy
+  has_many :activities, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -56,5 +57,10 @@ class User < ActiveRecord::Base
 
   def following? other_user
     following.include? other_user
+  end
+
+  def activity_followed
+    Activity.where("user_id IN (:follower_ids) OR user_id = :user_id",
+                    follower_ids: follower_ids, user_id: id)
   end
 end

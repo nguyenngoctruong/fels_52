@@ -1,0 +1,12 @@
+<% target = activity.return_target_object %>
+<% if activity.lesson? %>
+  <%= link_to category_lesson_path(target.category, target) do %>
+    <b><%= target.user.name %></b> learned <%= target.results.count %> words in Lesson 
+    <b><%= target.category.name %></b>-(<%= target.created_at.strftime("%m/%d/%Y") %>)<br>
+  <% end %>
+<% else %>
+  <b><%= link_to activity.user.name, current_user %></b>
+  <%= activity.follow? ? "follow" : "unfollow" %>
+  <b><%= link_to target.name, target %></b>-
+  <%= target.created_at.strftime("%m/%d/%Y") %>)<br>
+<% end %>

@@ -12,5 +12,7 @@
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
+    <div class="col-md-10 activity">Activities</div>
+    <div class="col-md-10 lesson-list"><%= render @activities %></div>
   </div>
 </div>
