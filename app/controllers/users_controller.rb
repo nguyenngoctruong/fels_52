@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :logged_in_user, except: [:new, :create]
   before_action :correct_user,   only: [:edit, :update]
 
@@ -13,7 +12,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
-    @activities = @user.activities
+    @activities = @user.activities.order_time
   end
 
   def create

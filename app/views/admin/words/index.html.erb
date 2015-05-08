@@ -6,11 +6,11 @@
     <%= render "shared/form_filter_word" %>
     <div class="row">
       <div class="col-md-1">
-      <%= submit_tag "Filter", class: "btn btn-primary" %>
+        <%= submit_tag "Filter", class: "btn btn-primary" %>
       </div>
       <div class="col-md-3">
-        <%= link_to 'New Word', new_admin_word_path(category_id: ""),
-        class: "btn btn-primary new-word" %>
+        <%= link_to 'New Word', "javascipt:void()",
+          class: "btn btn-primary new-word" %>
       </div>
     </div>
   <% end %>

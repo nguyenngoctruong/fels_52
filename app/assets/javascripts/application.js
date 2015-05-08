@@ -56,6 +56,17 @@ $(document).ready(function () {
       $(".results:visible").hide();
       prevDiv.show();
   });
+
+  $(".alert" ).fadeOut(3000);
+
+  if (parseInt($(".checkback").attr('id')) == 1 ){
+    if (window.history && window.history.pushState) {
+      window.history.pushState('forward', null, '');
+      $(window).on('popstate', function() {
+        window.location.reload();
+      })
+    }
+  }
 });
 
 function remove_fields(link) {
